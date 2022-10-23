@@ -1,0 +1,57 @@
+[
+  {
+    "path": "/",
+    "component": "/Users/hukai/code/realworld-nuxtjs/pages/index.vue",
+    "children": [
+      {
+        "name": "home",
+        "path": "",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/home",
+        "_name": "_fcec010a"
+      },
+      {
+        "name": "profile",
+        "path": "/profile/:username",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/profile",
+        "_name": "_4668298d"
+      },
+      {
+        "name": "settings",
+        "path": "/settings",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/settings",
+        "_name": "_17dd18bf"
+      },
+      {
+        "name": "createArticle",
+        "path": "/createArticle",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/editArticle",
+        "_name": "_56150570"
+      },
+      {
+        "name": "editArticle",
+        "path": "/editArticle/:slug",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/editArticle",
+        "_name": "_56150570"
+      },
+      {
+        "name": "article",
+        "path": "/article/:slug",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/article",
+        "_name": "_2d326cda"
+      },
+      {
+        "name": "login",
+        "path": "/login",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/login",
+        "_name": "_a0238f66"
+      },
+      {
+        "name": "register",
+        "path": "/register",
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/login",
+        "_name": "_a0238f66"
+      }
+    ],
+    "_name": "_58be594e"
+  }
+]
