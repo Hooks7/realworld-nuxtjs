@@ -66,3 +66,28 @@ export const deleteArticle = ($axios, slug) => {
         method: 'DELETE',
     })
 }
+
+// 发表评论
+export const addComments = ($axios, slug, data) => {
+    return $axios({
+        url: `/api/articles/${slug}/comments`,
+        method: 'POST',
+        data
+    })
+}
+
+// 获取评论列表
+export const getComments = ($axios, slug) => {
+    return $axios({
+        url: `/api/articles/${slug}/comments`,
+        method: 'GET'
+    })
+}
+
+// 删除评论
+export const deleteComments = ($axios, slug, id) => {
+    return $axios({
+        url: `/api/articles/${slug}/comments/${id}`,
+        method: 'DELETE'
+    })
+}
