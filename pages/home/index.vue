@@ -60,12 +60,7 @@
               </li>
             </ul>
           </div>
-          <ArticleCard
-            v-for="(item, index) in articles"
-            :key="index"
-            :item="item"
-          />
-
+          <ArticleCard v-for="item in articles" :key="item.slug" :item="item" />
           <nav>
             <ul class="pagination">
               <!-- ngRepeat: pageNumber in $ctrl.pageRange($ctrl.totalPages) -->
