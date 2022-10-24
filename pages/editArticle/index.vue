@@ -63,6 +63,7 @@
 <script>
 import { createArticle, getArticle, updateArticle } from "@/api/articles";
 export default {
+  middleware: "authenticated",
   data() {
     return {
       article: {

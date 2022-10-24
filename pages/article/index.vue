@@ -4,7 +4,11 @@
       <div class="container">
         <h1>{{ article.title }}</h1>
 
-        <UserHead :article="article" />
+        <UserHead
+          :article="article"
+          @refreshArticleInfo="refreshArticleInfo"
+          @refreshAuthor="refreshAuthor"
+        />
       </div>
     </div>
 
@@ -18,7 +22,11 @@
       <hr />
 
       <div class="article-actions">
-        <UserHead :article="article" />
+        <UserHead
+          :article="article"
+          @refreshArticleInfo="refreshArticleInfo"
+          @refreshAuthor="refreshAuthor"
+        />
       </div>
 
       <div class="row">
@@ -94,6 +102,7 @@ import { getArticle } from "@/api/articles";
 import { marked } from "marked";
 import UserHead from "./components/UserHead.vue";
 export default {
+  middleware: "authenticated",
   components: { UserHead },
 
   async asyncData({ route, $axios }) {
@@ -102,6 +111,16 @@ export default {
 
     article.body = marked.parse(article.body);
     return { article };
+  },
+
+  methods: {
+    refreshArticleInfo(article) {
+      this.article = article;
+    },
+
+    refreshAuthor(profile) {
+      this.article.author = profile;
+    },
   },
 };
 </script>

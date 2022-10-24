@@ -3,17 +3,17 @@
     <nuxt-link
       :to="{
         name: 'profile',
-        params: { username: articleInfo.author.username },
+        params: { username: article.author.username },
       }"
-      ><img :src="articleInfo.author.image"
+      ><img :src="article.author.image"
     /></nuxt-link>
     <div class="info">
-      <a href="" class="author">{{ articleInfo.author.username }}</a>
-      <span class="date">{{ articleInfo.createdAt | date("MMM DD,YYYY") }}</span>
+      <a href="" class="author">{{ article.author.username }}</a>
+      <span class="date">{{ article.createdAt | date("MMM DD,YYYY") }}</span>
     </div>
 
-    <template v-if="articleInfo.author.username === user.username">
-      <nuxt-link :to="'/editArticle/' + articleInfo.slug">
+    <template v-if="article.author.username === user.username">
+      <nuxt-link :to="'/editArticle/' + article.slug">
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-edit"></i>
           &nbsp; Edit Article
@@ -22,7 +22,7 @@
       &nbsp;&nbsp;
       <button
         class="btn btn-sm btn-outline-danger"
-        @click="deleteArticle(articleInfo.slug)"
+        @click="deleteArticle(article.slug)"
       >
         <i class="ion-trash-a"></i>
         &nbsp; Delete Article
@@ -32,27 +32,27 @@
     <template v-else>
       <button
         class="btn btn-sm btn-outline-secondary"
-        :class="{ active: articleInfo.author.following }"
-        @click="setFollow(articleInfo.author)"
-        :disabled="articleInfo.author.followDisabled"
+        :class="{ active: article.author.following }"
+        @click="setFollow(article.author)"
+        :disabled="article.author.followDisabled"
       >
         <i class="ion-plus-round"></i>
         &nbsp;
-        {{ articleInfo.author.following ? "Unfollow" : "Follow" }}
-        {{ articleInfo.author.username }}
+        {{ article.author.following ? "Unfollow" : "Follow" }}
+        {{ article.author.username }}
       </button>
       &nbsp;&nbsp;
       <button
         class="btn btn-sm btn-outline-primary"
         :class="{
-          active: articleInfo.favorited,
+          active: article.favorited,
         }"
-        :disabled="articleInfo.favoriteDisabled"
-        @click="setFavorite(articleInfo)"
+        :disabled="article.favoriteDisabled"
+        @click="setFavorite(article)"
       >
         <i class="ion-heart"></i>
-        &nbsp; {{ articleInfo.favorited ? "Unfavorite" : "Favorite" }} Post
-        <span class="counter">({{ articleInfo.favoritesCount }})</span>
+        &nbsp; {{ article.favorited ? "Unfavorite" : "Favorite" }} Post
+        <span class="counter">({{ article.favoritesCount }})</span>
       </button>
     </template>
   </div>
@@ -70,18 +70,14 @@ export default {
   props: ["article"],
 
   data() {
-    return {
-      articleInfo: {},
-    };
+    return {};
   },
 
   computed: {
     ...mapState(["user"]),
   },
 
-  created() {
-    this.articleInfo = this.$_.cloneDeep(this.article);
-  },
+  created() {},
 
   methods: {
     async deleteArticle(slug) {
@@ -91,21 +87,22 @@ export default {
 
     // 点赞/取消点赞
     async setFavorite({ favorited, slug }) {
-      this.$set(this.articleInfo, "favoriteDisabled", true);
+      this.$set(this.article, "favoriteDisabled", true);
 
       let { article } = !favorited
         ? await favoriteArticle(this.$axios, slug)
         : await unfavoriteFavorite(this.$axios, slug);
-      this.articleInfo = article;
+
+      this.$emit("refreshArticleInfo", article);
     },
 
     // 订阅/取消订阅
     async setFollow({ following, username }) {
-      this.$set(this.articleInfo.author, "followDisabled", true);
+      this.$set(this.article.author, "followDisabled", true);
       let { profile } = !following
         ? await followUser(this.$axios, username)
         : await unFollowUser(this.$axios, username);
-      this.articleInfo.author = profile;
+      this.$emit("refreshAuthor", profile);
     },
   },
 };

@@ -83,6 +83,7 @@ import { mapState } from "vuex";
 import ArticleCard from "@/component/ArticleCard";
 export default {
   name: "profile",
+  middleware: "authenticated",
   watchQuery: ["username", "type"],
   components: { ArticleCard },
   async asyncData({ route, $axios }) {
