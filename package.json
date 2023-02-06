@@ -17,6 +17,8 @@
     "axios": "^0.19.2",
     "cookieparser": "^0.1.0",
     "dayjs": "^1.11.5",
+    "element-ui": "^2.15.10",
+    "hk-date-picker": "^0.0.7",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "marked": "^4.1.1",

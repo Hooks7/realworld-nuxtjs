@@ -6,52 +6,43 @@
       {
         "name": "home",
         "path": "",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/home",
-        "_name": "_fcec010a"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/home"
       },
       {
         "name": "profile",
         "path": "/profile/:username",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/profile",
-        "_name": "_4668298d"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/profile"
       },
       {
         "name": "settings",
         "path": "/settings",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/settings",
-        "_name": "_17dd18bf"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/settings"
       },
       {
         "name": "createArticle",
         "path": "/createArticle",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/editArticle",
-        "_name": "_56150570"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/editArticle"
       },
       {
         "name": "editArticle",
         "path": "/editArticle/:slug",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/editArticle",
-        "_name": "_56150570"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/editArticle"
       },
       {
         "name": "article",
         "path": "/article/:slug",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/article",
-        "_name": "_2d326cda"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/article"
       },
       {
         "name": "login",
         "path": "/login",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/login",
-        "_name": "_a0238f66"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/login"
       },
       {
         "name": "register",
         "path": "/register",
-        "component": "/Users/hukai/code/realworld-nuxtjs/pages/login",
-        "_name": "_a0238f66"
+        "component": "/Users/hukai/code/realworld-nuxtjs/pages/login"
       }
-    ],
-    "_name": "_58be594e"
+    ]
   }
 ]

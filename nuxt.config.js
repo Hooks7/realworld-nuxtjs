@@ -62,11 +62,17 @@ module.exports = {
         , // Used as fallback if no runtime config is provided
     },
 
-
+    css: [
+        'element-ui/lib/theme-chalk/index.css'
+    ],
     plugins: [
         '~/plugins/request',
         '~/plugins/lodash',
-        '~/plugins/day'
-    ]
+        '~/plugins/day',
+        '~/plugins/element-ui',
+    ],
+    build: {
+        vendor: ['element-ui']
+    }
 
 }
